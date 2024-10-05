@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="API Test Suite">
+    <listeners>
+        <listener class-name="report.Listener" />
+    </listeners>
+
+    <test name="API Tests">
+        <classes>
+            <class name="org.example.tests.VideoGameTests" />
+            <class name="org.example.tests.AuthenticationTests" />
+        </classes>
+    </test>
+</suite>
