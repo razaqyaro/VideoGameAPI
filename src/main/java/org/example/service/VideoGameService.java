@@ -3,8 +3,10 @@ package org.example.service;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.example.config.ConfigManager;
+import org.example.model.VideoGame;
 
 public class VideoGameService {
+
     public Response getAllVideoGames(String token) {
         RestAssured.baseURI = ConfigManager.getProperty("base.url");
 
@@ -21,57 +23,51 @@ public class VideoGameService {
                 .get(ConfigManager.getProperty("video.games.endpoint") + "/" + gameId);
     }
 
-    // Method to create a video game
-    public Response createVideoGame(String category, String name, String releaseDate) {
-        String requestBody = """
-            {
-              "category": "Pop",
-              "name": "Game of War",
-              "rating": "Mature",
-              "releaseDate": "2024-09-09",
-              "reviewScore": 85
-            }
-            """.formatted(category, name, releaseDate);
+    public Response createVideoGame(String token, VideoGame videoGame) {
+        RestAssured.baseURI = ConfigManager.getProperty("base.url");
+
+        String requestBody = String.format("""
+                {
+                  "category": "%s",
+                  "name": "%s",
+                  "rating": "%s",
+                  "releaseDate": "%s",
+                  "reviewScore": %d
+                }
+                """, videoGame.getCategory(), videoGame.getName(), videoGame.getRating(), videoGame.getReleaseDate(), videoGame.getReviewScore());
+
         return RestAssured.given()
+                .header("Authorization", "Bearer " + token)
                 .contentType("application/json")
                 .body(requestBody)
                 .post(ConfigManager.getProperty("video.games.endpoint"));
     }
 
-    // Method to list all video games
-    public Response listAllVideoGames() {
-        return RestAssured.given().get(ConfigManager.getProperty("video.games.endpoint"));
-    }
+    public Response updateVideoGame(String token, int id, VideoGame videoGame) {
+        RestAssured.baseURI = ConfigManager.getProperty("base.url");
 
-    // Method to get a video game by ID
-    public Response getVideoGameById(int id) {
-        return RestAssured.given().get(ConfigManager.getProperty("video.games.endpoint") + "/" + id);
-    }
-
-    // Method to update a video game by ID
-    public Response updateVideoGame(int id, String category, String name, String releaseDate) {
-        String requestBody = """
-            {
-              "category": "Pop",
-              "name": "Game of War",
-              "rating": "Mature",
-              "releaseDate": "2024-09-09",
-              "reviewScore": 85
-            }
-            """.formatted(category, name, releaseDate);
+        String requestBody = String.format("""
+                {
+                  "category": "%s",
+                  "name": "%s",
+                  "rating": "%s",
+                  "releaseDate": "%s",
+                  "reviewScore": %d
+                }
+                """, videoGame.getCategory(), videoGame.getName(), videoGame.getRating(), videoGame.getReleaseDate(), videoGame.getReviewScore());
 
         return RestAssured.given()
+                .header("Authorization", "Bearer " + token)
                 .contentType("application/json")
                 .body(requestBody)
                 .put(ConfigManager.getProperty("video.games.endpoint") + "/" + id);
     }
 
+    public Response deleteVideoGame(String token, int id) {
+        RestAssured.baseURI = ConfigManager.getProperty("base.url");
 
-
-    // Method to delete a video game by ID
-    public Response deleteVideoGame(int id) {
-        return RestAssured.given().delete(ConfigManager.getProperty("video.games.endpoint") + "/" + id);
+        return RestAssured.given()
+                .header("Authorization", "Bearer " + token)
+                .delete(ConfigManager.getProperty("video.games.endpoint") + "/" + id);
     }
-
-
 }

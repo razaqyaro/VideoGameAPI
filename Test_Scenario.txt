@@ -1,0 +1,57 @@
+Test Scenarios for Video Game API
+==========================================
+
+Authentication Tests
+======================
+Validate successful authentication with valid credentials.
+Validate authentication failure with invalid credentials.
+
+Get All Video Games
+=====================
+Retrieve all video games and validate the response:
+Status code is 200.
+Content type is application/json.
+Response body matches the expected JSON schema.
+games list in the response is not null.
+
+Get Video Game by ID
+=======================
+Retrieve a video game by valid ID and validate the response:
+Status code is 200.
+Response body matches the expected JSON schema.
+Game name in the response is not null.
+Retrieve a video game by an invalid ID (e.g., negative number) and validate:
+Status code is 404.
+
+Create Video Game
+======================
+Create a new video game with valid data and validate the response:
+Status code is 201.
+Response body matches the expected JSON schema.
+Attempt to create a video game with missing required fields and validate:
+Status code is 400.
+Attempt to create a video game with invalid data types (e.g., negative scores, invalid dates) and validate:
+Status code is 400.
+
+Update Video Game
+======================
+Update an existing video game with valid data and validate the response:
+Status code is 200.
+Response body matches the expected JSON schema.
+Attempt to update a video game that does not exist and validate:
+Status code is 404.
+
+Delete Video Game
+====================
+Delete an existing video game and validate the response:
+Status code is 204.
+Response body matches the expected JSON schema.
+Attempt to delete a video game that does not exist and validate:
+Status code is 404.
+
+Edge Case Tests
+==================
+Attempt to get all video games without authentication and validate:
+Status code is 401.
+Attempt to delete a video game without authentication and validate:
+Status code is 401.
