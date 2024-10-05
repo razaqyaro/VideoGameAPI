@@ -19,7 +19,7 @@
    - [Contact Support](#contact-support)
 
 ## 1. Introduction
-The project is a Automation of the Video Game API using Rest Assured. The Swagger file can be found here https://www.videogamedb.uk/swagger-ui/index.html
+The project is about Automation of the Video Game API using Rest Assured. The Swagger file can be found here https://www.videogamedb.uk/swagger-ui/index.html
 This document provides instructions for setting up the testing environment, running the tests, and viewing the generated reports. This guide is intended for developers, QA engineers, and anyone involved in the testing process.
 
 ## 2. Prerequisites
