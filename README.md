@@ -36,8 +36,9 @@ Before you begin, ensure you have the following installed:
 2. Clone the repository using Git:
 
   
-   git clone https://github.com/razaqyaro/VideoGameAPI.git
-   cd VideoGameAPI
+   `git clone https://github.com/razaqyaro/VideoGameAPI.git`
+   and open the project
+  ` cd VideoGameAPI`
 
    ### Install Dependencies
 
