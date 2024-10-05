@@ -19,6 +19,7 @@
    - [Contact Support](#contact-support)
 
 ## 1. Introduction
+The project is about Automation of the Video Game API using Rest Assured. The Swagger file can be found here https://www.videogamedb.uk/swagger-ui/index.html
 This document provides instructions for setting up the testing environment, running the tests, and viewing the generated reports. This guide is intended for developers, QA engineers, and anyone involved in the testing process.
 
 ## 2. Prerequisites
@@ -26,7 +27,7 @@ Before you begin, ensure you have the following installed:
 - **Java Development Kit (JDK)** 8 or higher
 - **Apache Maven**
 - **IDE** (e.g., IntelliJ IDEA, Eclipse) for viewing and editing code
-- **Git** (if the project is version-controlled)
+- **Git** 
 
 ## 3. Setting Up the Environment
 
@@ -35,8 +36,9 @@ Before you begin, ensure you have the following installed:
 2. Clone the repository using Git:
 
   
-   git clone https://github.com/razaqyaro/VideoGameAPI.git
-   cd VideoGameAPI
+   `git clone https://github.com/razaqyaro/VideoGameAPI.git`
+   and open the project
+  ` cd VideoGameAPI`
 
    ### Install Dependencies
 
