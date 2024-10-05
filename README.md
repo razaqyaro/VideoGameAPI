@@ -27,7 +27,7 @@ Before you begin, ensure you have the following installed:
 - **Java Development Kit (JDK)** 8 or higher
 - **Apache Maven**
 - **IDE** (e.g., IntelliJ IDEA, Eclipse) for viewing and editing code
-- **Git** (if the project is version-controlled)
+- **Git** 
 
 ## 3. Setting Up the Environment
 
