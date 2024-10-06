@@ -8,11 +8,10 @@ import org.testng.annotations.Test;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 
 public class AuthenticationTests {
-    private AuthenticationService authService = new AuthenticationService();
+    private final AuthenticationService authService = new AuthenticationService();
 
     @Test
     public void testAuthentication() {
-        AuthenticationService authService = new AuthenticationService();
         String token = authService.authenticate("admin", "admin");
         Assert.assertNotNull(token, "Authentication token should not be null");
         Assert.assertFalse(token.isEmpty(), "Authentication token should not be empty");
